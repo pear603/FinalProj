@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/astro_bg"
+    tools:context=".MainActivity">
+    <!--    android:background="@drawable/astro_bg"-->
+<!--    android:background="#ECDFCC"-->
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:paddingHorizontal="16dp"
+        android:text="Unlock Your Stars"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Grid of 12 Buttons -->
+    <TextView
+        android:id="@+id/subtitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Choose your zodiac sign to see your daily horoscope"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:flow_verticalAlign="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnCount="3"
+        android:gravity="center"
+        android:rowCount="4"
+        android:useDefaultMargins="true"
+        app:layout_constraintBottom_toTopOf="@id/submitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText">
+
+        <!-- 12 ImageButtons (you can replace @drawable/ic_launcher_foreground) -->
+        <ImageButton
+            android:id="@+id/btnAries"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/aries" />
+
+        <ImageButton
+            android:id="@+id/btnTaurus"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 2"
+            android:scaleType="fitCenter"
+            android:src="@drawable/taurus" />
+
+        <ImageButton
+            android:id="@+id/btnGemini"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 3"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gemeni" />
+
+        <ImageButton
+            android:id="@+id/btnCancer"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 4"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cancer" />
+
+        <ImageButton
+            android:id="@+id/btnLeo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 5"
+            android:scaleType="fitCenter"
+            android:src="@drawable/leo" />
+
+        <ImageButton
+            android:id="@+id/btnVirgo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 6"
+            android:scaleType="fitCenter"
+            android:src="@drawable/virgo" />
+
+        <ImageButton
+            android:id="@+id/btnLibra"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 7"
+            android:scaleType="fitCenter"
+            android:src="@drawable/libra" />
+
+        <ImageButton
+            android:id="@+id/btnScorpio"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 8"
+            android:scaleType="fitCenter"
+            android:src="@drawable/scorpio" />
+
+        <ImageButton
+            android:id="@+id/btnSagittarius"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 9"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sagittarius" />
+
+        <ImageButton
+            android:id="@+id/btnCapricornus"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 10"
+            android:scaleType="fitCenter"
+            android:src="@drawable/capricornus" />
+
+        <ImageButton
+            android:id="@+id/btnAquarius"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 11"
+            android:scaleType="fitCenter"
+            android:src="@drawable/aquarius" />
+
+        <ImageButton
+            android:id="@+id/btnPisces"
+            android:layout_width="89dp"
+            android:layout_height="82dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_button"
+            android:contentDescription="Sign 12"
+            android:scaleType="fitCenter"
+            android:src="@drawable/pisces1" />
+
+    </GridLayout>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3E2723"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="48dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
