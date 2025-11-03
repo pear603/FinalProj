@@ -31,6 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:text="Choose your zodiac sign to see your daily horoscope"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -60,7 +62,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector_selector"
             android:contentDescription="Sign 1"
             android:scaleType="fitCenter"
             android:src="@drawable/aries" />
@@ -70,7 +72,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 2"
             android:scaleType="fitCenter"
             android:src="@drawable/taurus" />
@@ -80,7 +82,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 3"
             android:scaleType="fitCenter"
             android:src="@drawable/gemeni" />
@@ -90,7 +92,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 4"
             android:scaleType="fitCenter"
             android:src="@drawable/cancer" />
@@ -100,7 +102,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 5"
             android:scaleType="fitCenter"
             android:src="@drawable/leo" />
@@ -110,7 +112,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 6"
             android:scaleType="fitCenter"
             android:src="@drawable/virgo" />
@@ -120,7 +122,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 7"
             android:scaleType="fitCenter"
             android:src="@drawable/libra" />
@@ -130,7 +132,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 8"
             android:scaleType="fitCenter"
             android:src="@drawable/scorpio" />
@@ -140,7 +142,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 9"
             android:scaleType="fitCenter"
             android:src="@drawable/sagittarius" />
@@ -150,7 +152,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 10"
             android:scaleType="fitCenter"
             android:src="@drawable/capricornus" />
@@ -160,7 +162,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 11"
             android:scaleType="fitCenter"
             android:src="@drawable/aquarius" />
@@ -170,7 +172,7 @@
             android:layout_width="89dp"
             android:layout_height="82dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_selector"
             android:contentDescription="Sign 12"
             android:scaleType="fitCenter"
             android:src="@drawable/pisces1" />
