@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             btnLibra to "Libra",
             btnScorpio to "Scorpio",
             btnSagittarius to "Sagittarius",
-            btnCapricornus to "Capricornus",
+            btnCapricornus to "Capricorn",
             btnAquarius to "Aquarius",
             btnPisces to "Pisces"
         )

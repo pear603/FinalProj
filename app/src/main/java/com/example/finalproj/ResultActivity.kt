@@ -4,48 +4,80 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
 
 class ResultActivity : AppCompatActivity() {
+
+    private val BASE_URL = "https://horoscope-app-api.vercel.app/api/v1/get-horoscope"
+
+    private lateinit var resultTitle: TextView
+    private lateinit var resultText: TextView
+    private lateinit var backButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val resultTitle = findViewById<TextView>(R.id.resultTitle)
-        val resultText = findViewById<TextView>(R.id.resultText)
+        resultTitle = findViewById(R.id.resultTitle)
+        resultText = findViewById(R.id.resultText)
+        backButton = findViewById(R.id.backButton)
 
-        // Get selected sign from MainActivity
-        val selectedSign = intent.getStringExtra("selectedSign")
+        val sign = intent.getStringExtra("selectedSign")
 
-        // Display sign name
-        resultTitle.text = "Your Horoscope for $selectedSign"
-
-        // Show dummy horoscope (you can replace this with real API data later)
-        val horoscope = when (selectedSign) {
-            "Aries" -> "Today is full of new opportunities. Be brave and take the lead!"
-            "Taurus" -> "Patience and persistence bring rewards. Stay calm and focused."
-            "Gemini" -> "Communication is your strength today — share your thoughts!"
-            "Cancer" -> "Emotions run deep; take time to care for yourself and loved ones."
-            "Leo" -> "Your charm shines bright! A great day for social and creative energy."
-            "Virgo" -> "Organization leads to success. Focus on the details."
-            "Libra" -> "Balance is key. Resolve conflicts with fairness and kindness."
-            "Scorpio" -> "Your passion drives you. Follow your instincts confidently."
-            "Sagittarius" -> "Adventure awaits! Be open to learning something new."
-            "Capricornus" -> "Hard work pays off — progress is closer than you think."
-            "Aquarius" -> "Innovation sparks today. Don’t be afraid to be different."
-            "Pisces" -> "Your intuition guides you well. Trust your dreams and feelings."
-            else -> "Please select a zodiac sign."
+        if (sign.isNullOrEmpty()) {
+            resultText.text = "Please select a zodiac sign."
+            return
         }
 
-        resultText.text = horoscope
+        resultTitle.text = "Your Horoscope for $sign"
+        resultText.text = "Loading your horoscope..."
 
-        val backButton = findViewById<Button>(R.id.backButton)
+        lifecycleScope.launch {
+            val result = fetchHoroscope(sign)
+            resultText.text = result
+            if (result.startsWith("Error")) {
+                Toast.makeText(this@ResultActivity, result, Toast.LENGTH_LONG).show()
+            }
+        }
+
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) // Clear back stack
-            startActivity(intent)
-            finish() // Optional: close ResultActivity
+            startActivity(Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            })
+            finish()
+        }
+    }
+
+    private suspend fun fetchHoroscope(sign: String): String = withContext(Dispatchers.IO) {
+        try {
+            val client = OkHttpClient()
+            // this API supports a format like:
+            // https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=aries&day=today
+            val url = "$BASE_URL/daily?sign=${sign.lowercase()}&day=today"
+            val request = Request.Builder().url(url).build()
+
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) {
+                    return@use "Error: ${response.code} - ${response.message}"
+                }
+
+                val body = response.body?.string() ?: return@use "Empty response"
+                val json = JSONObject(body)
+
+                // API returns something like: {"data": {"horoscope_data": "text here"}}
+                val data = json.optJSONObject("data")
+                data?.optString("horoscope_data") ?: "No horoscope found"
+            }
+        } catch (e: Exception) {
+            "Error: ${e.message ?: "Unknown error occurred"}"
         }
     }
 }
